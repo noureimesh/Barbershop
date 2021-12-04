@@ -5,3 +5,4 @@ class Barber:
         self.bio = bio;
         self.endTime = endTime;
         self.shifts = shifts;
+        
