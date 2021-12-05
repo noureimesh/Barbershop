@@ -11,10 +11,10 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
@@ -49,12 +49,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'api.urls'
+ROOT_URLCONF = 'Barbershop.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'Barbershop/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -66,8 +66,11 @@ TEMPLATES = [
         },
     },
 ]
+STATICFILES_DIRS = ( 
+    BASE_DIR / 'Barbershop/static',        
+)
 
-WSGI_APPLICATION = 'api.wsgi.application'
+WSGI_APPLICATION = 'Barbershop.wsgi.application'
 
 
 # Database
