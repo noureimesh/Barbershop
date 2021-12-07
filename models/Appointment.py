@@ -1,8 +1,8 @@
 class Appointment:
-    def __init__(self, date , startTime, endTime,barberId,clientId):
+    def __init__(self, date , startTime, barberId,clientId):
         self.date = date;
-        self.endTime = endTime;
         self.startTime = startTime;
+        self.endTime = startTime(minutes=30);
         self.barberId = barberId;
         self.clientId = clientId;
         
