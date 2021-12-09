@@ -1,5 +1,5 @@
-from Barber import *
-from Appointment import *
+from .Barber import *
+from .Appointment import *
 
 class Barbershop:
        def __init__(self,address= "", name= "" , barbers= [],clients =[], bio = "", appointments= []):
