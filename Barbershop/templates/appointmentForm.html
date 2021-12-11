@@ -13,72 +13,76 @@
   
 </head>
 <body class="text-center">
-<main class="form-signin">
-    <form id="appointmentForm" method="post">
-      <img src="https://cdn-icons-png.flaticon.com/512/1749/1749918.png" style="max-width:20%;" alt="...">
-      <!-- 2 column grid layout with text inputs for the first and last names -->
-    <h1 class="h3 mb-3 fw-normal">Please book an appointment</h1>
-    <div class="row mb-4">
+    <div class="form-signin row col-md-12">
+        <form id="appointmentForm" method="post">
+          <img src="https://cdn-icons-png.flaticon.com/512/1749/1749918.png" style="max-width:20%;" alt="...">
+          <!-- 2 column grid layout with text inputs for the first and last names -->
+        <h1 class="h3 mb-3 fw-normal">Please book an appointment</h1>
+        <div class="row mb-4">
+              <div class="col">
+                <div class="form-floating">
+                  <input type="text" id="clientName" class="form-control" required/>
+                  <label for="clientName"> Name</label>
+                </div>
+              </div>
+              </div>
+
+        <div class="row mb-4">
+          <div class="col">
+            <select class="form-select form-control" aria-label="BarberName" name="barber" id="barberId" required>
+              <option disabled selected value="">Select Barber</option>
+            {% for barber in barbers %}
+              <option value="{{ barber.id }}">{{ barber.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+
+          <!-- Text input -->
+        <div class="row mb-4">
           <div class="col">
             <div class="form-floating">
-              <input type="text" id="clientName" class="form-control" required/>
-              <label for="clientName"> Name</label>
+              <input type="text" id="date" class="form-control datepicker" required />
+              <label class="form-label " for="date">Date</label>
             </div>
           </div>
+        </div>
+        
+        <div class="row mb-4">
+          <div class="col">
+              <div class="form-floating">
+              <input type="time" id="time" class="form-control" min="now()" required>
+              <label class="form-label" for="Date">Start Time</label>
+            </div>
           </div>
         </div>
-       
-    <div class="row mb-4">
-      <div class="col">
-        <select class="form-select form-control" aria-label="BarberName" name="barber" id="barberId" required>
-          <option disabled selected value="">Select Barber</option>
-         {% for barber in barbers %}
-          <option value="{{ barber.id }}">{{ barber.name }}</option>
-          {% endfor %}
-        </select>
-      </div>
+          
+            <!-- Submit button -->
+            <button type="submit" name="submit" value="submit" class="btn btn-primary btn-block mb-4">book</button>
+        </form>
     </div>
-
-      <!-- Text input -->
-    <div class="row mb-4">
-      <div class="col">
-        <div class="form-floating">
-          <input type="text" id="date" class="form-control datepicker" required />
-          <label class="form-label " for="date">Date</label>
-        </div>
-      </div>
-    </div>
-     
-    <div class="row mb-4">
-      <div class="col">
-           <div class="form-floating">
-          <input type="time" id="time" class="form-control" min="now()" required>
-          <label class="form-label" for="Date">Start Time</label>
-        </div>
-      </div>
-    </div>
-      
-        <!-- Submit button -->
-        <button type="submit" name="submit" value="submit" class="btn btn-primary btn-block mb-4">book</button>
-      </form>
-
-
+    <div class="card border-info">
+      <h5 class="card-header text-info border-info">Barbers Information</h5>
+      <div class="card-body ">
+    <div class="row ">
       {% for barber in barbers %}
+      <div class="card bg-light mb-4"  style="max-width: 25rem;" >
       
-      <div class="card bg-light mb-3"  style="max-width: 18rem;" class="col-lg-6 mb-4">
-        
         <div class="card-header">{{ barber.name }}</div>
         <div class="card-body">
           <h5 class="card-title">{{barber.bio}}</h5>
-
+  
           {% for shift in barber.shifts %}
           <p class="card-text">{{shift.dayName}} : {{shift.startTime}} - {{shift.endTime}}</p>
-           {% endfor %}
-          
-        </div> 
-        {% endfor %} 
-        
-</main>
+          {% endfor %}
+  
+          </div> 
+    </div>
+    
+    {% endfor %} 
+    </div>
+  </div>
+  </div>
 </body>
   
 <script>
