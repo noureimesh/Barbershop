@@ -56,8 +56,8 @@ def Seed():
   hussamShifts.append(Shift(2,2, time(8, 30,00) , time(13, 30, 00)));
   hussamShifts.append(Shift(2,4, time(12, 30, 00) , time(17, 30, 00)));
 
-  barbershop.barbers.append(Barber(1,"Ahmad","2 years ecperience",ahmadShifts));
-  barbershop.barbers.append(Barber(2,"Hussam","5 years ecperience",hussamShifts));
+  barbershop.barbers.append(Barber(1,"Ahmad","2 years experience",ahmadShifts));
+  barbershop.barbers.append(Barber(2,"Hussam","5 years experience",hussamShifts));
 
   barbershop.clients.append(Client(1,"Georg"))
   barbershop.clients.append(Client(2,"Saleem"))
@@ -66,3 +66,4 @@ def Seed():
   barbershop.appointments.append(Appointment(date(2021,12,6),time(10,00,00),1,1))
 
   return barbershop;
+

@@ -61,6 +61,23 @@
         <!-- Submit button -->
         <button type="submit" name="submit" value="submit" class="btn btn-primary btn-block mb-4">book</button>
       </form>
+
+
+      {% for barber in barbers %}
+      
+      <div class="card bg-light mb-3"  style="max-width: 18rem;" class="col-lg-6 mb-4">
+        
+        <div class="card-header">{{ barber.name }}</div>
+        <div class="card-body">
+          <h5 class="card-title">{{barber.bio}}</h5>
+
+          {% for shift in barber.shifts %}
+          <p class="card-text">{{shift.dayName}} : {{shift.startTime}} - {{shift.endTime}}</p>
+           {% endfor %}
+          
+        </div> 
+        {% endfor %} 
+        
 </main>
 </body>
   
